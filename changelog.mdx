@@ -1,0 +1,155 @@
+---
+title: Changelog
+description: Track the latest updates, improvements, and fixes in Gwerna to stay informed about new features and changes.
+---
+
+## Recent Updates
+
+Stay current with Gwerna's evolution. Review the latest releases below to understand new capabilities, fixes, and migration steps. Each version includes detailed changelogs to help you upgrade smoothly.
+
+<Update label="2024-10-20" description="v1.3.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added real-time collaboration for teams, enabling live editing sessions with cursor tracking and conflict resolution.
+- Introduced AI-powered search that understands natural language queries across your documentation space.
+
+## Improvements
+
+- Enhanced performance of the documentation renderer by `>40%` for large projects.
+- Improved mobile responsiveness with better touch controls and offline editing support.
+
+## Bug Fixes
+
+- Fixed sync issues when switching between branches in multi-user environments.
+- Resolved export failures for documents containing embedded `{mermaid}` diagrams.
+
+</Update>
+
+<Update label="2024-09-25" description="v1.2.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Integrated version history with diff views and one-click rollbacks.
+- Added custom CSS theming support via a new `{themes}` configuration panel.
+
+## Bug Fixes
+
+- Patched security vulnerability in webhook endpoints (CVE-2024-XXXX).
+- Corrected rendering glitches for nested lists in MDX previews.
+
+## Improvements
+
+- Streamlined onboarding with interactive tutorials embedded in the dashboard.
+
+</Update>
+
+<Update label="2024-08-15" description="v1.1.0" tags={["breaking", "feature"]}>
+
+## Breaking Changes
+
+- Updated authentication to require `{API_KEY}` in headers instead of query params. Migrate using the guide below.
+
+## New Features
+
+- Launched public API endpoints at `https://api.example.com/v1/docs`.
+- Added webhook support for external integrations.
+
+## Bug Fixes
+
+- Fixed infinite loading loops in search results.
+
+</Update>
+
+## Upgrade Instructions
+
+Follow these steps to upgrade Gwerna safely. Always test in a staging environment first.
+
+<Steps>
+  <Step title="Backup Your Data" icon="database">
+
+    Export your documentation space:
+
+````bash
+gwerna export --space my-project --output backup.zip
+````
+
+  </Step>
+  <Step title="Update CLI" icon="download">
+
+    <CodeGroup tabs="npm,yarn">
+````bash
+npm install -g @gwerna/cli@latest
+````
+````bash
+yarn global add @gwerna/cli@latest
+````
+    </CodeGroup>
+
+  </Step>
+  <Step title="Migrate Config" icon="settings">
+
+    Update your `{config.json}` for new auth format:
+
+````json
+{
+  "apiKey": "YOUR_API_KEY",
+  "endpoint": "https://api.example.com/v1"
+}
+````
+
+  </Step>
+  <Step title="Verify Installation" icon="check-circle">
+
+    Run `gwerna doctor` to check compatibility.
+
+  </Step>
+</Steps>
+
+<Callout kind="alert">
+  **Breaking Change in v1.1.0:** Authentication now uses `Authorization: Bearer {YOUR_API_KEY}` headers. Update all scripts immediately to avoid disruptions.
+</Callout>
+
+## Upcoming Roadmap
+
+Explore what's next for Gwerna. These features are in active development.
+
+<Columns cols={3}>
+  <Card title="Advanced Permissions" icon="shield" href="#permissions">
+    Granular role-based access for enterprise teams.
+  </Card>
+  <Card title="Git Sync" icon="git-branch" href="#git-sync">
+    Native integration with GitHub and GitLab repositories.
+  </Card>
+  <Card title="Analytics Dashboard" icon="bar-chart-3" href="#analytics">
+    Track document views, edits, and collaboration metrics.
+  </Card>
+</Columns>
+
+<Expandable title="Migration Example for v1.1.0" default-open="false">
+
+If you used query param auth, here's a quick fix:
+
+<CodeGroup tabs="JavaScript,Python">
+````javascript
+// Old
+fetch('https://api.example.com/docs?api_key=YOUR_API_KEY')
+
+// New
+fetch('https://api.example.com/docs', {
+  headers: { 'Authorization': `Bearer ${YOUR_API_KEY}` }
+})
+````
+````python
+import requests
+
+# Old
+response = requests.get('https://api.example.com/docs', params={'api_key': 'YOUR_API_KEY'})
+
+# New
+headers = {'Authorization': 'Bearer YOUR_API_KEY'}
+response = requests.get('https://api.example.com/docs', headers=headers)
+````
+</CodeGroup>
+
+</Expandable>

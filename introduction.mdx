@@ -1,0 +1,100 @@
+---
+title: Introduction to Gwerna
+description: Discover Gwerna, a powerful documentation platform for organizing and managing your project documentation spaces efficiently.
+---
+
+## Overview
+
+Gwerna helps you create, organize, and manage documentation spaces for your projects. You build structured knowledge bases with version control, search, and collaboration tools. Focus on content while Gwerna handles hosting, SEO, and updates.
+
+<Callout kind="info">
+  Gwerna integrates with your Git workflow, so you edit docs in Markdown and publish automatically.
+</Callout>
+
+## Key Features
+
+Explore Gwerna's core capabilities through these highlights.
+
+<Columns cols={3}>
+  <Card title="Documentation Spaces" icon="book-open" href="/docs/spaces">
+    Organize docs into isolated spaces for different projects or teams.
+  </Card>
+  <Card title="Real-time Collaboration" icon="users" href="/docs/collaboration">
+    Edit with teammates, add comments, and track changes live.
+  </Card>
+  <Card title="Advanced Search" icon="search" href="/docs/search">
+    Full-text search across spaces with filters and highlighting.
+  </Card>
+</Columns>
+
+## Who Should Use Gwerna
+
+<Tabs>
+  <Tab title="Developers & Engineers" icon="code">
+    You document APIs, SDKs, and deployment guides. Gwerna supports MDX components, code highlighting, and API reference generation.
+  </Tab>
+  <Tab title="Product Teams" icon="users">
+    Create user guides, onboarding flows, and changelogs. Share spaces publicly or privately with role-based access.
+  </Tab>
+  <Tab title="Open Source Maintainers" icon="github">
+    Host beautiful docs sites linked to your repo. Auto-deploy on push with custom domains.
+  </Tab>
+</Tabs>
+
+## Quick Start
+
+Get up and running in minutes.
+
+<Steps>
+  <Step title="Sign Up" icon="user-plus">
+    Visit `https://gwerna.com` and create a free account with your email or GitHub.
+  </Step>
+  <Step title="Create a Space" icon="plus">
+    Click "New Space" and name it, like "My Project Docs".
+  </Step>
+  <Step title="Add Your First Doc" icon="file-text">
+    Upload Markdown files or use the editor. Preview changes live.
+
+````mdx
+# Welcome to My Docs
+
+## Quick Install
+
+```bash
+npm install my-package
+```
+````
+
+  </Step>
+  <Step title="Publish" icon="globe">
+    Hit publish to generate your site at `https://docs.gwerna.com/my-space`.
+  </Step>
+</Steps>
+
+## Basic Terminology
+
+<ExpandableGroup>
+  <Expandable title="Space" default-open="true">
+    A Space is your isolated documentation site. Create one per project or product.
+  </Expandable>
+  <Expandable title="Doc">
+    Individual Markdown or MDX pages within a Space. Supports components like `<Callout>` and code blocks.
+  </Expandable>
+  <Expandable title="Version">
+    Track changes with Git-like versioning. Roll back or branch docs as needed.
+  </Expandable>
+</ExpandableGroup>
+
+## Next Steps
+
+<Card title="Quickstart Guide" icon="rocket" href="/quickstart">
+  Dive deeper into setup and customization.
+</Card>
+
+<Card title="Authentication" icon="shield" href="/authentication">
+  Secure your spaces with API keys and roles.
+</Card>
+
+<Callout kind="tip">
+  Explore the sidebar navigation or search for specific topics. Start with Quickstart to build your first Space.
+</Callout>

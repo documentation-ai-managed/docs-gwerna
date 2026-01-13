@@ -1,0 +1,137 @@
+---
+title: Quickstart Guide
+description: Get up and running with Gwerna in minutes by setting up your account and creating your first documentation space.
+---
+
+## Prerequisites
+
+<Callout kind="info">
+Before starting, ensure you have:
+- A modern web browser (Chrome, Firefox, or Safari)
+- An email address for account verification
+- Optional: Existing documentation in Markdown or GitHub repo for import
+</Callout>
+
+## Sign up for an account
+
+Follow these steps to create your Gwerna account.
+
+<Steps>
+  <Step title="Visit signup page" icon="globe">
+    Navigate to [https://gwerna.com/signup](https://gwerna.com/signup).
+  </Step>
+  <Step title="Enter details" icon="user">
+    Provide your email, name, and a strong password. Gwerna uses secure hashing for passwords.
+  </Step>
+  <Step title="Verify email" icon="mail">
+    Check your inbox for the verification link and click it to activate your account.
+  </Step>
+  <Step title="Log in" icon="log-in">
+    Return to [https://gwerna.com/login](https://gwerna.com/login) and sign in.
+  </Step>
+</Steps>
+
+## Create your first documentation space
+
+A documentation space organizes your project's docs.
+
+<Steps>
+  <Step title="Access dashboard" icon="layout-dashboard">
+    After login, you land at [https://dashboard.gwerna.com](https://dashboard.gwerna.com).
+  </Step>
+  <Step title="Create space" icon="plus">
+    Click **New Space**, enter a name like `My Project Docs`, and select a slug (e.g., `my-project`).
+  </Step>
+  <Step title="Configure basics" icon="settings">
+    Choose public or private visibility and add a description.
+  </Step>
+  <Step title="Save and enter" icon="check-circle">
+    Click **Create**. Your space is ready at `https://gwerna.com/my-project`.
+  </Step>
+</Steps>
+
+## Import existing documentation
+
+Gwerna supports seamless imports.
+
+<Tabs>
+  <Tab title="GitHub Repo" icon="github">
+    <Steps>
+      <Step title="Connect GitHub">
+        In your space settings, select **Import from GitHub** and authorize the app.
+      </Step>
+      <Step title="Select repo">
+        Choose your repo (e.g., `username/my-docs`) and branch (`main`).
+      </Step>
+      <Step title="Map files">
+        Gwerna auto-detects Markdown files and imports them as pages.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Markdown Folder" icon="folder">
+    <Steps>
+      <Step title="Upload ZIP">
+        Prepare a ZIP of your Markdown files and upload via **Import ZIP**.
+      </Step>
+      <Step title="Review structure">
+        Gwerna preserves folder hierarchy as nested pages.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+## Navigate the dashboard
+
+<Columns cols={3}>
+  <Card title="Spaces" icon="library" href="#">
+    View and manage all your documentation spaces.
+  </Card>
+  <Card title="Editor" icon="edit-3" href="#">
+    Create and edit pages with live preview.
+  </Card>
+  <Card title="Settings" icon="settings" href="#">
+    Configure SEO, custom domains, and integrations.
+  </Card>
+</Columns>
+
+## Edit and publish your first page
+
+<Steps>
+  <Step title="Create page" icon="file-plus">
+    In your space, click **New Page** and name it `Introduction`.
+  </Step>
+  <Step title="Add content" icon="edit">
+    Use the Markdown editor. Here's a sample:
+
+    <CodeGroup tabs="Markdown,Preview">
+    ````markdown
+    # Welcome to My Project
+
+    This is your **first page** in Gwerna.
+
+    ## Features
+    - Easy editing
+    - Live previews
+    - Custom domains
+    ````
+
+    ````html
+    <h1>Welcome to My Project</h1>
+    <p>This is your <strong>first page</strong> in Gwerna.</p>
+    <h2>Features</h2>
+    <ul>
+      <li>Easy editing</li>
+      <li>Live previews</li>
+      <li>Custom domains</li>
+    </ul>
+    ````
+    </CodeGroup>
+  </Step>
+  <Step title="Publish" icon="upload-cloud">
+    Click **Publish**. Your page is live instantly.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+Explore advanced features like custom themes or API integrations next. Check your space settings for more options.
+</Callout>

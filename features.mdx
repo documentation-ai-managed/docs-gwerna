@@ -1,0 +1,129 @@
+---
+title: Core Features
+description: Explore Gwerna's essential tools for collaboration, version control, and content management in your documentation projects.
+---
+
+## Overview
+
+Gwerna provides powerful tools to manage your documentation projects efficiently. You organize content into hierarchies, collaborate with teams using fine-grained permissions, track changes with version history, search across all documents, and export in multiple formats. These features help you maintain professional documentation spaces tailored to your projects.
+
+<Columns cols={3}>
+  <Card title="Document Hierarchies" icon="layout" href="#document-organization">
+    Structure your docs like a website with nested pages.
+  </Card>
+  <Card title="Team Collaboration" icon="users" href="#collaboration">
+    Invite members and control access levels.
+  </Card>
+  <Card title="Version Control" icon="git-branch" href="#version-history">
+    Roll back changes and view edit history.
+  </Card>
+</Columns>
+
+## Document Organization and Hierarchies
+
+Create intuitive folder structures and nested pages to mirror your project's architecture. You drag and drop pages to reorganize, add custom sidebars, and set navigation menus.
+
+<Steps>
+  <Step title="Create a Folder" icon="folder">
+    Navigate to your workspace root. Click the `+` button and select `New Folder`. Name it `API Reference`.
+  </Step>
+  <Step title="Add Nested Pages" icon="file-text">
+    Inside the folder, create pages like `Endpoints.mdx` and `Authentication.mdx`.
+  </Step>
+  <Step title="Customize Navigation" icon="menu">
+    Edit the sidebar YAML to define hierarchy:
+    
+````yaml
+sidebar:
+  - label: API Reference
+    items:
+      - label: Endpoints
+        href: endpoints
+      - label: Authentication
+        href: authentication
+````
+    
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Use descriptive slugs for pages, like `user-authentication`, to generate clean URLs.
+</Callout>
+
+## Collaboration and Permissions
+
+Invite team members and assign roles to control who edits, views, or publishes content.
+
+<Tabs>
+  <Tab title="Editor" icon="edit-3">
+    Full access to edit pages, reorganize structures, and manage permissions.
+  </Tab>
+  <Tab title="Viewer" icon="eye">
+    Read-only access. View published docs without editing capabilities.
+  </Tab>
+  <Tab title="Admin" icon="shield">
+    All permissions plus workspace settings and member management.
+  </Tab>
+</Tabs>
+
+To invite a collaborator:
+
+```bash
+# Via dashboard
+1. Go to Workspace Settings > Members
+2. Enter email and select role
+```
+
+## Version History and Rollback
+
+Every edit creates a snapshot. You view diffs, restore previous versions, or compare changes.
+
+<CodeGroup tabs="CLI,Dashboard">
+```bash
+# CLI rollback to version
+gwerna rollback my-page.mdx --version v1.2.3
+```
+```javascript
+// API endpoint for history
+const history = await fetch('https://api.gwerna.com/workspaces/{workspaceId}/pages/{pageId}/history');
+```
+</CodeGroup>
+
+## Search and Indexing
+
+Gwerna indexes all content automatically. You search by keywords, tags, or metadata across your entire workspace.
+
+| Feature | Description |
+|---------|-------------|
+| Full-Text Search | Matches titles, body, and code blocks |
+| Filters | By folder, tag, or author |
+| Live Results | Instant previews with highlighting |
+
+<Expandable title="Advanced Indexing" default-open="false">
+  Customize indexing with custom fields:
+  
+````json
+{
+  "tags": ["api", "v1"],
+  "status": "draft",
+  "indexed": true
+}
+````
+
+</Expandable>
+
+## Export and Sharing Options
+
+Publish static sites or share snapshots. Options include Markdown export, PDF generation, and public links.
+
+| Format | Use Case | Command |
+|--------|----------|---------|
+| Markdown | Git sync | `gwerna export --format md` |
+| HTML Site | Hosting | `gwerna publish --static` |
+| PDF | Reports | `gwerna export --pdf` |
+
+Share via public URLs like `https://docs.gwerna.com/{workspace}/{page}`. Set expiration or passwords for sensitive docs.
+
+<Callout kind="info">
+  Exports preserve hierarchies and images. Test locally before sharing.
+</Callout>
